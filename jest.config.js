@@ -8,6 +8,9 @@ const config = {
     '\\.(styl|css)$': '<rootDir>/src/__mocks__/styleMock.js',
   },
   testEnvironment: 'jsdom',
+  coverageReporters: [
+    'text-summary',
+  ],
 };
 
 module.exports = config;

@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --open --mode development",
     "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
     "lint": "eslint src/",
-    "test": "jest --coverage",
+    "test": "jest",
     "test:watch": "jest --watchAll --coverage"
   },
   "repository": {
