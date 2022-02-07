@@ -5,7 +5,7 @@ import Checkout from '../containers/Checkout';
 import Layout from '../components/Layout';
 import NotFound from '../containers/NotFound';
 
-const basename = process.env.NODE_ENV === 'production' ? '/platzi-store-jest' : '';
+const basename = process.env.REACT_APP_BASENAME;
 
 const App = () => (
   <BrowserRouter
