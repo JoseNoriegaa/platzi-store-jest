@@ -7,15 +7,20 @@ import { createBrowserHistory } from 'history';
 import initialState from '../initialState';
 import reducer from '../reducers';
 
-const store = createStore(reducer, initialState);
-const history = createBrowserHistory();
+const ProviderMock = ({
+  children,
+  state = initialState,
+  history = createBrowserHistory(),
+}) => {
+  const store = createStore(reducer, state);
 
-const ProviderMock = ({ children }) => (
-  <Provider store={store}>
-    <Router history={history}>
-      { children }
-    </Router>
-  </Provider>
-);
+  return (
+    <Provider store={store}>
+      <Router history={history}>
+        { children }
+      </Router>
+    </Provider>
+  );
+};
 
 export default ProviderMock;

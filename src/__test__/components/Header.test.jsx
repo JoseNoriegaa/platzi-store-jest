@@ -5,7 +5,9 @@ import { create } from 'react-test-renderer';
 
 // Internal depedencies
 import ProviderMock from '../../__mocks__/ProviderMock';
+import ProductMock from '../../__mocks__/ProductMock';
 import Header from '../../components/Header';
+import initialState from '../../initialState';
 
 describe('<Header />', () => {
   it('Should render correctly', () => {
@@ -28,6 +30,22 @@ describe('<Header />', () => {
     const title = header.find('.Header-title').text();
 
     expect(title).toEqual('Platzi Store');
+  });
+
+  it('should render the amount of items in the cart', () => {
+    const header = mount(
+      <ProviderMock
+        state={{
+          ...initialState,
+          cart: [{ ...ProductMock }],
+        }}
+      >
+        <Header />
+      </ProviderMock>,
+    );
+
+    const alert = header.find('.Header-alert').text();
+    expect(alert).toEqual('1');
   });
 });
 
